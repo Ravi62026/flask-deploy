@@ -1,8 +1,15 @@
 from flask import Flask, request, jsonify
-import google.generativeai as genai
 from flask_cors import CORS
+import google.generativeai as genai
+import os
+from dotenv import load_dotenv
+
 app = Flask(__name__)
-CORS(app)
+# Explicitly enable CORS for your frontend domain
+CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "https://your-frontend-domain.com"]}})
+
+load_dotenv()
+
 
 class BNSAdvisor:
     def __init__(self):
@@ -123,4 +130,5 @@ def home():
     """Home route to check API status."""
     return jsonify({"message": "BNS Advisor API is running."})
 
-
+if __name__ == "__main__":
+    app.run(debug=True, port = 8000)
