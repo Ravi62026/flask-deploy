@@ -127,6 +127,7 @@ def analyze_points():
 
 
 @app.route("/", methods=["GET"])
+@cross_origin()
 def home():
     """Home route to check API status."""
     return jsonify({"message": "BNS Advisor API is running."})
