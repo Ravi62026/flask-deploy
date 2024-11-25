@@ -14,7 +14,7 @@ class LegalCaseAnalyzer:
         # api_key = os.getenv('GOOGLE_API_KEY')  # Get API key from environment variable
         # api_key = "AIzaSyAEuC2MmuM83A-LsCffx5FoMwhmgGkadus"
         
-        api_key = "AIzaSyAYoCo4Ko8VWdQHdswrpbmkDIVJNio47ps"
+        api_key = "AIzaSyDyDmCnaHBTTjlW_kYwnGzJimsDSsSCiKk"
         if not api_key:
             raise ValueError("GOOGLE_API_KEY environment variable not set")
             
