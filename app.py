@@ -4,18 +4,17 @@ from flask_cors import cross_origin
 import google.generativeai as genai
 from typing import Dict
 
-
-
-
 app = Flask(__name__)
 CORS(app)
-
+ 
 
 class LegalCaseAnalyzer:
     def __init__(self):
         """Initialize the Google Gemini model with the API key."""
         # api_key = os.getenv('GOOGLE_API_KEY')  # Get API key from environment variable
-        api_key = "AIzaSyAEuC2MmuM83A-LsCffx5FoMwhmgGkadus"
+        # api_key = "AIzaSyAEuC2MmuM83A-LsCffx5FoMwhmgGkadus"
+        
+        api_key = "AIzaSyAYoCo4Ko8VWdQHdswrpbmkDIVJNio47ps"
         if not api_key:
             raise ValueError("GOOGLE_API_KEY environment variable not set")
             
