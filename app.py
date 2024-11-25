@@ -2,8 +2,6 @@ from flask import Flask, request, jsonify
 from flask_cors import cross_origin
 from flask_cors import CORS
 import google.generativeai as genai
-import os
-from dotenv import load_dotenv
 
 app = Flask(__name__)
 # Explicitly enable CORS for your frontend domain
