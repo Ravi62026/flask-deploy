@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import cross_origin
 from flask_cors import CORS
 import google.generativeai as genai
 import os
@@ -6,9 +7,7 @@ from dotenv import load_dotenv
 
 app = Flask(__name__)
 # Explicitly enable CORS for your frontend domain
-CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "https://your-frontend-domain.com"]}})
-
-load_dotenv()
+CORS(app)
 
 
 class BNSAdvisor:
@@ -74,6 +73,7 @@ Provide a structured, detailed response with legal clarity and practical advice.
 advisor = BNSAdvisor()
 
 @app.route("/analyze", methods=["POST"])
+@cross_origin()
 def analyze():
     """Endpoint to analyze crime details."""
     try:
@@ -97,6 +97,7 @@ def analyze():
 
 
 @app.route("/analyze_points", methods=["POST"])
+@cross_origin()
 def analyze_points():
     """Endpoint to analyze crime details and return the response in point-wise format."""
     try:
@@ -129,6 +130,3 @@ def analyze_points():
 def home():
     """Home route to check API status."""
     return jsonify({"message": "BNS Advisor API is running."})
-
-if __name__ == "__main__":
-    app.run(debug=True, port = 8000)
