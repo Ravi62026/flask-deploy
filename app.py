@@ -14,11 +14,13 @@ class LegalCaseAnalyzer:
         # api_key = os.getenv('GOOGLE_API_KEY')  # Get API key from environment variable
         # api_key = "AIzaSyAEuC2MmuM83A-LsCffx5FoMwhmgGkadus"
         
-        api_key = "AIzaSyDyDmCnaHBTTjlW_kYwnGzJimsDSsSCiKk"
+        api_key = "AIzaSyAwXkzu7QNyOjPx2oIDbIHWVKBaCH1B_po"
+        
         if not api_key:
             raise ValueError("GOOGLE_API_KEY environment variable not set")
             
         genai.configure(api_key=api_key)
+        
         self.model_flash = genai.GenerativeModel("gemini-1.5-flash")
         self.model_pro = genai.GenerativeModel("gemini-1.5-pro-002")
 
