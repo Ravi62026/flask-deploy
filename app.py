@@ -5,7 +5,7 @@ import google.generativeai as genai
 from typing import Dict
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
  
 
 class LegalCaseAnalyzer:
